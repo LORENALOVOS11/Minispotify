@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MiniSpotify</title>
+
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+
+</head>
+
+
+<body>
+
+
+<div class="sidebar">
+
+    <h2>🎵 MiniSpotify</h2>
+
+
+    <a th:href="@{/}">
+        🏠 Inicio
+    </a>
+
+
+    <a th:href="@{/agregar}">
+        ➕ Agregar Música
+    </a>
+
+
+</div>
+
+
+
+
+
+<div class="contenido">
+
+
+    <h1>Mis Canciones</h1>
+
+
+
+    <!-- BUSCADOR -->
+
+    <input 
+        type="text"
+        id="buscar"
+        placeholder="🔍 Buscar canción..."
+        onkeyup="buscarCancion()">
+
+
+
+
+
+    <div class="cards">
+
+
+        <div class="card" th:each="cancion : ${canciones}">
+
+
+            <img class="portada"
+                 th:src="@{'/img/' + ${cancion.imagen}}"
+                 alt="Portada">
+
+
+
+            <h3 class="titulo"
+                th:text="${cancion.titulo}">
+            </h3>
+
+
+
+
+            <p class="artista"
+               th:text="${cancion.artista}">
+            </p>
+
+
+
+            <p th:text="${cancion.album}">
+            </p>
+
+
+
+
+
+            <!-- REPRODUCTOR -->
+
+            <audio controls class="reproductor">
+
+
+                <source th:src="@{'/music/' + ${cancion.audio}}"
+                        type="audio/mpeg">
+
+
+                Tu navegador no soporta audio.
+
+
+            </audio>
+
+
+
+
+
+
+            <div class="card-acciones">
+
+
+                <a th:href="@{'/eliminar/' + ${cancion.id}}">
+                    🗑️ Eliminar
+                </a>
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+<footer>
+
+    Creado por Lorena Lovos 🎧
+
+</footer>
+
+
+
+
+
+<script th:src="@{/js/scripts.js}"></script>
+
+
+
+
+<!-- EVITA QUE DOS CANCIONES SUENEN AL MISMO TIEMPO -->
+
+<script>
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+
+    const reproductores = document.querySelectorAll(".reproductor");
+
+
+
+    reproductores.forEach(function(audio){
+
+
+
+        audio.addEventListener("play", function(){
+
+
+
+            reproductores.forEach(function(otroAudio){
+
+
+
+                if(otroAudio !== audio){
+
+
+                    otroAudio.pause();
+
+                    otroAudio.currentTime = 0;
+
+
+                }
+
+
+            });
+
+
+
+        });
+
+
+
+    });
+
+
+
+});
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+body{
+    margin:0;
+    background:#121212;
+    color:white;
+    font-family:Arial, sans-serif;
+    display:flex;
+}
+
+.sidebar{
+    width:220px;
+    background:black;
+    height:100vh;
+    padding:20px;
+}
+
+.sidebar h2{
+    color:#1DB954;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    margin:25px 0;
+}
+
+.contenido{
+    flex:1;
+    padding:30px;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:220px;
+    background:#181818;
+    border-radius:10px;
+    padding:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    background:#282828;
+}
+
+.portada{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.titulo{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.artista{
+    color:#b3b3b3;
+}
+
+audio{
+    width:100%;
+    margin-top:10px;
+}
+
+.card-acciones{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+}
+
+.card-acciones a{
+    text-decoration:none;
+    font-size:20px;
+}
+
+#buscar{
+
+    width: 350px;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 16px;
+
+}
+
+
+
+.card-acciones a{
+
+    text-decoration: none;
+    color: white;
+    background: #1db954;
+    padding: 8px 15px;
+    border-radius: 20px;
+
+}
+
+
+
+footer{
+
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    color:white;
+    font-size: 15px;
+
+}

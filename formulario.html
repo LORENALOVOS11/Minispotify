@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Agregar Música</title>
+
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+
+</head>
+
+
+<body>
+
+
+<div class="formulario-container">
+
+
+    <h1>🎵 Agregar Música</h1>
+
+
+
+    <form th:action="@{/agregar}"
+          th:object="${cancion}"
+          method="post">
+
+
+        <label>Título:</label>
+
+        <input type="text"
+               th:field="*{titulo}"
+               required>
+
+
+
+        <label>Artista:</label>
+
+        <input type="text"
+               th:field="*{artista}"
+               required>
+
+
+
+
+        <label>Álbum:</label>
+
+        <input type="text"
+               th:field="*{album}">
+
+
+
+
+
+        <label>Imagen de portada:</label>
+
+        <input type="text"
+               th:field="*{imagen}"
+               placeholder="ejemplo.png"
+               required>
+
+
+
+
+
+        <label>Archivo de música:</label>
+
+        <input type="text"
+               th:field="*{audio}"
+               placeholder="cancion.mp3"
+               required>
+
+
+
+
+
+        <button type="submit" class="btn-guardar">
+
+            ➕ Agregar Música
+
+        </button>
+
+
+
+
+        <a href="/" class="btn-cancelar">
+
+            Cancelar
+
+        </a>
+
+
+
+    </form>
+
+
+</div>
+
+
+</body>
+
+</html>
