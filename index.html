@@ -8,7 +8,7 @@
 
     <title>MiniSpotify</title>
 
-    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+<link rel="stylesheet" href="estilos.css">
 
 </head>
 
@@ -63,7 +63,7 @@
 
 
             <img class="portada"
-                 th:src="@{'/img/' + ${cancion.imagen}}"
+                 <img src="imagen11.png">
                  alt="Portada">
 
 
@@ -93,7 +93,7 @@
             <audio controls class="reproductor">
 
 
-                <source th:src="@{'/music/' + ${cancion.audio}}"
+                <source src="Cancion1.mp3">
                         type="audio/mpeg">
 
 
