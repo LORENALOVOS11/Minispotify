@@ -8,7 +8,7 @@
 
     <title>MiniSpotify</title>
 
-<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" th:href="@{/css/estilos.css}">
 
 </head>
 
@@ -62,9 +62,9 @@
         <div class="card" th:each="cancion : ${canciones}">
 
 
-            <img class="portada"
-                 <img src="imagen11we.png">
-                 alt="Portada">
+           <img class="portada"
+     th:src="@{'/img/' + ${cancion.imagen}}"
+     alt="Portada">
 
 
 
@@ -93,8 +93,8 @@
             <audio controls class="reproductor">
 
 
-                <source src="Cancion1.mp3">
-                        type="audio/mpeg">
+                <source th:src="@{'/music/' + ${cancion.audio}}"
+        type="audio/mpeg">
 
 
                 Tu navegador no soporta audio.
